@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style type="text/css">
+		h1,h5{
+			text-align: center;
+		}
+		canvas{
+			float: left;
+			margin: 10px;
+			overflow: hidden;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+            drawCanvas(0,0,"canvase_01","red",200,200);
+            drawCanvas(0,0,"canvase_02","green",200,100);
+
+            drawCanvas(0,0,"canvase_05","balnk",300,60);
+            drawCanvas(75,60,"canvase_05","gray",150,90);
+
+            drawCanvas(0,0,"canvase_06","blank",300,50);
+            drawCanvas(0,50,"canvase_06","red",300,50);
+            drawCanvas(0,100,"canvase_06","#f8cb1c",300,50);
+
+            drawCanvas(0,0,"canvase_07","green",100,150);
+            drawCanvas(100,0,"canvase_07","white",100,150);
+            drawCanvas(200,0,"canvase_07","red",100,150);
+
+            drawRound('canvase_03','blue',75,true);
+            drawRound('canvase_04','yellow',75,false);
+
+            drawRound('canvase_08','red',75,true);
+            drawRound('canvase_08','yellow',75,false);
+		}
+		function drawCanvas(x,y,id,bgColor,width,height){
+			var canvas=document.getElementById(id);
+			if(canvas != null && canvas != undefined){
+				var ctx = canvas.getContext('2d');
+				ctx.fillStyle = bgColor;
+				ctx.fillRect(Number(x),Number(y),Number(width),Number(height));
+			}
+		}
+		function drawRound(id,bgColor,r,IsRound){
+			var canvas=document.getElementById(id);
+			if(canvas != null && canvas != undefined){
+				var ctx = canvas.getContext('2d');
+				ctx.fillStyle = bgColor;
+                ctx.beginPath();
+
+                var round = Math.PI;
+                if(Boolean(IsRound))
+                	round = Math.PI*2;
+
+                ctx.arc(150,75,Number(r),0,round,true);
+
+                ctx.closePath();
+                ctx.fill();
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<section>
+			<h1>HTML5移动开发指南</h1>
+		</section>
+	</header>
+	<fieldset>
+		<legend>HTML5新元素--canvas绘图元素</legend>
+		<article>
+			<section>
+				<canvas id="canvase_01">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_02">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_03">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_04">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_05">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_06">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_07">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+				<canvas id="canvase_08">
+					你的浏览器不支持Canvas元素！
+				</canvas>
+			</section>
+		</article>
+	</fieldset>
+	<footer>
+		<section>
+			<h5>
+			    <span style="font-family:Arial,Helvetica,asns-serit;">
+			    	HTML5 新元素--Canvas绘图元素!
+			    </span>
+			</h5>
+		</section>
+	</footer>
+</body>
+</html>
